@@ -184,7 +184,6 @@ a:hover, a:active, a:focus { color: #0084d2; text-decoration: underline; outline
 }
 
 .content-wrapper {
-  width: 1060px; 
   margin: 0 auto;
 }
 .icon-container svg {
@@ -262,7 +261,8 @@ hr {
   top: 0;
   left: 0;
   right: 0;
-  height: 100vh;
+  bottom: env(safe-area-inset-bottom, 0.5vh);
+  height: 100%;
   padding: 150px 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -271,7 +271,7 @@ hr {
   z-index: -1;
 }
 
-.section.contact 
+.section.contact
 {
   background-color: transparent;
   padding: 150px 0;
@@ -294,7 +294,7 @@ hr {
   font-style: normal;
   font-size: 20px;
 }
-  
+
 .section.next-nav .content-wrapper {
   display: flex;
   justify-content: center;
@@ -316,30 +316,106 @@ hr {
   text-decoration: none;
 }
 
-/* Mobile device */
-@media (max-width: 480px) {
-}
-
-@media (max-width: 767px) {
-}
-
-@media (max-width: 767px) {
-}
-
-/* Tablet device */
-@media (max-width: 991px) and (min-width: 768px) {
-}
-
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1366px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+/* Desktop large screen */
+@media (min-width: 1200px) {
+  .content-wrapper {
+    width: 1060px;
+  }
 }
 
 /* Desktop small screen */
 @media (min-width: 992px) {
+  .content-wrapper {
+    width: 880px;
+  }
 }
 
-/* Desktop large screen */
-@media (min-width: 1200px) {
+/* Tablet device */
+@media (max-width: 991px) and (min-width: 768px) {
+  .content-wrapper {
+    width: 880px;
+  }
+}
+
+/* Mobile device */
+@media (max-width: 800px) {
+  .nav-header--menu-left a { display: block; }
+  .content-wrapper { width: auto; } /* So we can scale down to 300px */
+  .navigation-bar-header-spacer { height: 0px !important; }
+  .logo-header { height: 5vh; }
+
+  .section.enable-choice .content-wrapper,
+  .section.service-categories .content-wrapper {
+    display: block;
+  }
+
+  #footer img { width: 50%; }
+
+  .section.mall {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background: url('../img/dc-mall.png') 80% 10% no-repeat;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 40vh;
+  }
+
+  .menu-item:first-child {
+    font-size: 14px;
+    display: none;
+  }
+
+  .section.partnership h2,
+  .section.gov-business h2,
+  .section.sustain h2 {
+    font-size: 32px;
+    padding: 0 28px;
+  }
+
+  .section {
+    padding-bottom: 0;
+    min-height: auto;
+  }
+
+  .flex-row {
+    display: block;
+    padding: 24px;
+  }
+
+  .channel img,
+  .service-categories img {
+    width: 100%;
+  }
+
+  .section.compelling .content-wrapper { padding: 20px; }
+  .section.enable-choice .content-wrapper .column-text { padding: 20px; }
+  .section.enable-choice .content-wrapper .column-text h2 { padding-left: 20px; }
+  .column-text { width: 100%; }
+
+  .section.enable-choice .content-wrapper .icon-container {
+    left: 30px;
+    position: relative;
+    top: 84px;
+  }
+
+  .channel .content-wrapper {
+    padding: 16px;
+  }
+}
+
+@media (max-width:800px) and (orientation: landscape) {
+  .logo-header { height: 15vh; }
+}
+
+
+@media (max-width: 480px) {
+  .menu-item:first-child { display: none }
+  .menu-item { font-size: 12px; }
+}
+
+/* Retina */
+@media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 2) {
 }
